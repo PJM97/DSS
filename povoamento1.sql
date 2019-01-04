@@ -2,22 +2,33 @@
 call deleteDB();
 
 insert into Cliente
-	(idCliente,nomeCliente,email,passwordC)
+	(username,password,nome,email,visivel)
 		values
-			('1','Legolas','cabelopantene@hotmail.com','floresta12345')
+			 ('pussydestroyer69','floresta12345','Legolas','cabelopantene@hotmail.com','1')
+			,('marega11','marEgolo','Moussa Marega','mangalhaoescurinho@gmail.com','0')
 ;
-
--- select * from Cliente;
 
 insert into configuracao
-	(idConfiguracao,estado,precoConfig)
+	(idConfiguracao,preco,estado,visivel,cliente_username,sp)
 		values
-			('1','1','23.4')
+			('1','23.4','2','1','marega11','1')
+;
+
+insert into pacote
+	(nomePacote,preco,visivel)
+		values
+			('Pacote do Aço','69.99','1')
 ;
 
 
+insert into componente
+	(nome,tipo,designacao,preco,visivel,stock)
+		values
+			('Motor XPTO cor-de-rosa','Motor','este motor é muito bom, mas é cor-de-rosa :( ','25.95','1','17')
+;
+
+select * from componente where visivel=True;
 
 
 
 
-            
