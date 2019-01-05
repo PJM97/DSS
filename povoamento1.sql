@@ -40,6 +40,6 @@ insert into componente
             preco=values(preco),
             visivel=values(visivel),
             stock=values(stock)
-            ;
+;
 
 

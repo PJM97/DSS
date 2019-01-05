@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `DSS`.`Configuracao` (
   `estado` INT NOT NULL,
   `visivel` TINYINT NOT NULL,
   `Cliente_username` VARCHAR(45) NOT NULL,
+  `sp` INT NOT NULL,
   PRIMARY KEY (`idConfiguracao`),
   INDEX `fk_Configuracao_Cliente1_idx` (`Cliente_username` ASC) VISIBLE,
   CONSTRAINT `fk_Configuracao_Cliente1`
@@ -89,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `DSS`.`FuncionarioFabrica` (
   `password` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `Fabrica_nome` VARCHAR(45) NOT NULL,
   `visivel` TINYINT NOT NULL,
   PRIMARY KEY (`username`))
 ENGINE = InnoDB;
@@ -217,6 +217,36 @@ CREATE TABLE IF NOT EXISTS `DSS`.`Configuracao_has_Pacote` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+USE `DSS` ;
+
+-- -----------------------------------------------------
+-- procedure deleteDB
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `DSS`$$
+CREATE PROCEDURE `deleteDB` ()
+BEGIN
+
+delete from configuracao_has_pacote where configuracao_idconfiguracao > '0';
+delete from configuracao_has_componente where configuracao_idconfiguracao > '0';
+delete from configuracao where idConfiguracao > '0';
+
+delete from pacote_has_componente 	where pacote_nomepacote > '0';
+delete from pacote where nomepacote != ' ';
+
+delete from obrigatorio where componente_nome != ' ';
+delete from incompativel where componente_nome != ' ';
+delete from componente where nome != ' ';
+
+delete from cliente where username != ' ';
+delete from funcionariostand where username != ' ';
+delete from funcionariofabrica where username != ' ';
+delete from administrador where username != ' ';
+
+END$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
