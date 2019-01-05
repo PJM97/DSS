@@ -29,6 +29,17 @@ insert into componente
 
 select * from componente where visivel=True;
 
-
+insert into componente 
+	(nome,tipo,designacao,preco,visivel,stock)
+		values
+			('Motor XPTO cor-de-rosa','Motor','este motor é muito bom, mas é cor-de-rosa :( ','25.95','1','20')
+		on duplicate key update
+			nome=values(nome),
+            tipo=values(tipo),
+            designacao=values(designacao),
+            preco=values(preco),
+            visivel=values(visivel),
+            stock=values(stock)
+            ;
 
 
