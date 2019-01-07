@@ -8,3 +8,5 @@
 [Paulo Ribeiro](https://github.com/paulofr17)
 
 [João Costeira]()
+
+[Nuno Reis](https://github.com/Khirion)
