@@ -7,6 +7,6 @@
 
 [Paulo Ribeiro](https://github.com/paulofr17)
 
-[João Costeira]()
+[João Costeira](https://github.com/joaocosteira)
 
 [Nuno Reis](https://github.com/Khirion)
